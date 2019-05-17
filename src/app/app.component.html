@@ -4,12 +4,12 @@
 
 
 
-<!-- <form> -->
+<form [formGroup]="smallForm">
 
   <!-- Titles -->
   <mat-form-field>
     <mat-label>Titles</mat-label>
-    <mat-select #title>
+    <mat-select formControlName="titles">
       <mat-option
         *ngFor="let item of data | slice:0:5"
         [value]="item.body"
@@ -19,29 +19,30 @@
     </mat-select>
   </mat-form-field>
 
-  <br>
+  <strong style="margin-left: 50px;">{{ titlesValue }}</strong>
 
-  <strong style="margin-left: 30px;">{{ title.value }}</strong>
+  <br>
 
   <br>
   <br>
   <br>
 
   <!-- States -->
-  <!-- <mat-form-field>
+  <mat-form-field>
     <mat-label>States</mat-label>
-    <mat-select #state>
+    <mat-select formControlName="states">
       <mat-option
-        *ngFor="let state of states"
-        [value]="state.abbreviation"
+      *ngFor="let state of states"
+      [value]="state.abbreviation"
       >
-        {{ state.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+      {{ state.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<strong style="margin-left: 50px;">{{ statesValue }}</strong>
 
-  <strong style="margin-left: 30px;">{{ state.value }}</strong> -->
+<p>{{ smallForm.value | json }}</p>
 
-<!-- </form> -->
+</form>
 
 <router-outlet></router-outlet>
